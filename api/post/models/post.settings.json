@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "name": "Post"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Baslik": {
+      "type": "string",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 150
+    },
+    "Icerik": {
+      "type": "richtext",
+      "required": true,
+      "minLength": 150
+    },
+    "Fotograf_Id": {
+      "type": "biginteger"
+    },
+    "Yazar": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "Yazilar"
+    },
+    "Etiket": {
+      "collection": "tag"
+    }
+  }
+}
